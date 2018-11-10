@@ -27,7 +27,7 @@ dependencies {
 # Example:
 ## Get single permission:
 ```
-EasyPn.getPermission(Manifest.permission.READ_CONTACTS, this, new PermissionListener() {
+EasyPn.getPermission(Manifest.permission.READ_CONTACTS, context, new PermissionListener() {
             @Override
             public void onPermissionGranted() {
                 // Do whatever you want to do
@@ -49,7 +49,7 @@ ArrayList<String> permissions = new ArrayList<>();
         permissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
         permissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
-        EasyPn.getPermissions(permissions, this, new PermissionListener() {
+        EasyPn.getPermissions(permissions, context, new PermissionListener() {
             @Override
             public void onPermissionGranted() {
                 // Do whatever you want to do
