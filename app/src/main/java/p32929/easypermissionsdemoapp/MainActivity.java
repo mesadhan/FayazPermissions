@@ -22,22 +22,34 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getPermissions(View view) {
-        ArrayList<String> permissions = new ArrayList<>();
-        permissions.add(Manifest.permission.READ_CONTACTS);
-        permissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
-        permissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+//        ArrayList<String> permissions = new ArrayList<>();
+//        permissions.add(Manifest.permission.READ_CONTACTS);
+//        permissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
+//        permissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+//
+//        EasyPn.getPermissions(permissions, this, new PermissionListener() {
+//            @Override
+//            public void onPermissionGranted() {
+//                Log.d(TAG, "onPermissionGranted: ");
+//            }
+//
+//            @Override
+//            public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+//                for (int i = 0; i < deniedPermissions.size(); i++) {
+//                    Log.d(TAG, "onPermissionDenied: DeniedPermissions: " + deniedPermissions.get(i).toString());
+//                }
+//            }
+//        });
 
-        EasyPn.getPermissions(permissions, this, new PermissionListener() {
+        EasyPn.getPermission(Manifest.permission.READ_CONTACTS, this, new PermissionListener() {
             @Override
             public void onPermissionGranted() {
-                Log.d(TAG, "onPermissionGranted: ");
+
             }
 
             @Override
             public void onPermissionDenied(ArrayList<String> deniedPermissions) {
-                for (int i = 0; i < deniedPermissions.size(); i++) {
-                    Log.d(TAG, "onPermissionDenied: DeniedPermissions: " + deniedPermissions.get(i).toString());
-                }
+
             }
         });
     }
