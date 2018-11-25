@@ -3,8 +3,8 @@ package p32929.easypermissionsdemoapp;
 import android.Manifest;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -19,37 +19,30 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
-    public void getPermissions(View view) {
-//        ArrayList<String> permissions = new ArrayList<>();
-//        permissions.add(Manifest.permission.READ_CONTACTS);
-//        permissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
-//        permissions.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
-//
-//        EasyPn.getPermissions(permissions, this, new PermissionListener() {
-//            @Override
-//            public void onPermissionGranted() {
-//                Log.d(TAG, "onPermissionGranted: ");
-//            }
-//
-//            @Override
-//            public void onPermissionDenied(ArrayList<String> deniedPermissions) {
-//                for (int i = 0; i < deniedPermissions.size(); i++) {
-//                    Log.d(TAG, "onPermissionDenied: DeniedPermissions: " + deniedPermissions.get(i).toString());
-//                }
-//            }
-//        });
-
-        EasyPn.getPermission(Manifest.permission.READ_CONTACTS, this, new PermissionListener() {
+        EasyPn.getPermission(Manifest.permission.READ_PHONE_STATE, this, new PermissionListener() {
             @Override
             public void onPermissionGranted() {
-
+                Toast.makeText(MainActivity.this, "Granted", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+                Toast.makeText(MainActivity.this, "Denied", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
+    public void getPermissions(View view) {
+        EasyPn.getPermission(Manifest.permission.READ_PHONE_STATE, this, new PermissionListener() {
+            @Override
+            public void onPermissionGranted() {
+                Toast.makeText(MainActivity.this, "Granted", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+                Toast.makeText(MainActivity.this, "Denied", Toast.LENGTH_SHORT).show();
             }
         });
     }

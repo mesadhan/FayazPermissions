@@ -75,6 +75,8 @@ public class PermissionActivity extends AppCompatActivity {
         if (permissionList.size() > 0) {
             ActivityCompat.requestPermissions(this, permissionList.toArray(new String[permissionList.size()]), PERMISSIONS_REQUEST_CODE);
         } else {
+            finish();
+            overridePendingTransition(0, 0);
             permissionListener.onPermissionGranted();
         }
 
@@ -86,8 +88,9 @@ public class PermissionActivity extends AppCompatActivity {
         switch (requestCode) {
             case PERMISSIONS_REQUEST_CODE: {
                 ArrayList<String> deniedPermissions = getDeniedPermissions(this, permissions);
+                finish();
+                overridePendingTransition(0, 0);
                 permissionResult(deniedPermissions);
-
             }
 
         }
@@ -107,10 +110,6 @@ public class PermissionActivity extends AppCompatActivity {
 
     public static boolean isDenied(Context context, @NonNull String permission) {
         return ContextCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED;
-    }
-
-    private static boolean isGranted(Context context, @NonNull String permission) {
-        return ContextCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_GRANTED;
     }
 
     private static ArrayList<String> getDeniedPermissions(Context context, @NonNull String... permissions) {
