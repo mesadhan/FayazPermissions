@@ -75,8 +75,7 @@ public class PermissionActivity extends AppCompatActivity {
         if (permissionList.size() > 0) {
             ActivityCompat.requestPermissions(this, permissionList.toArray(new String[permissionList.size()]), PERMISSIONS_REQUEST_CODE);
         } else {
-            finish();
-            overridePendingTransition(0, 0);
+            this.finish();
             permissionListener.onPermissionGranted();
         }
 
@@ -105,7 +104,7 @@ public class PermissionActivity extends AppCompatActivity {
                 permissionListener.onPermissionDenied(deniedPermissions);
         }
         PermissionActivity.permissionListener = null;
-        finish();
+        this.finish();
     }
 
     public static boolean isDenied(Context context, @NonNull String permission) {
@@ -124,7 +123,7 @@ public class PermissionActivity extends AppCompatActivity {
 
     @Override
     public void finish() {
-        super.finish();
         overridePendingTransition(0, 0);
+        super.finish();
     }
 }
