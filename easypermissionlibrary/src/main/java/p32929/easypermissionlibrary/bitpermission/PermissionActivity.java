@@ -87,8 +87,7 @@ public class PermissionActivity extends AppCompatActivity {
         switch (requestCode) {
             case PERMISSIONS_REQUEST_CODE: {
                 ArrayList<String> deniedPermissions = getDeniedPermissions(this, permissions);
-                finish();
-                overridePendingTransition(0, 0);
+                this.finish();
                 permissionResult(deniedPermissions);
             }
 
@@ -123,7 +122,7 @@ public class PermissionActivity extends AppCompatActivity {
 
     @Override
     public void finish() {
-        overridePendingTransition(0, 0);
         super.finish();
+        overridePendingTransition(0, 0);
     }
 }

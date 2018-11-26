@@ -16,7 +16,7 @@ Add the dependency
 
 ```
 dependencies {
-     implementation 'com.github.p32929:FayazPermissions:1.0.0.3'
+     implementation 'com.github.p32929:FayazPermissions:-SNAPSHOT'
 }
 ```
 
