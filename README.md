@@ -22,7 +22,7 @@ dependencies {
 
 # Usage
 1. Declare all the necessary permissions in your ```AndroidManifest.xml``` file
-2. To get a single permission, call ```EasyPn.getPermission()``` and to get multiple permissions call ```EasyPn.getPermission()```
+2. To get a single permission, call ```EasyPn.getPermission()``` and to get multiple permissions call ```EasyPn.getPermissions()```
 
 # Example:
 ## Get single permission:
